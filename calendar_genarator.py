@@ -28,8 +28,35 @@ class  CalendarGenerator:
         else:
             return start
     def build_grid_string(self,start_day_index,total_days):
-        self.start_day_index=self.get_start_day_of_month(1,2026)
-        return self.start_day_index
+    
+    
+        day1='Su Mo Tu We Th Fr Sa\n'
+        for i in range(1,total_days+1):
+            if i==1:
+                day1+=' '*start_day_index*3+' '+str(i)
+            elif (start_day_index+i)%7==0 and i<10:
+                day1+='  '+str(i)+'\n'
+            elif (start_day_index+i)%7==0:
+                day1+=' '+str(i)+'\n'
+            elif (i+start_day_index-1)%7==0 and i<10:
+                day1+=' '+str(i)
+            elif (i+start_day_index-1)%7==0:
+                day1+=str(i)
+            elif i<10:
+                day1+='  '+str(i)
+            elif i>=10:
+                day1+=' '+str(i)
+        return day1[:-1]
+    def generate_calendar(self,month,year):
+        return self.build_grid_string(
+            self.get_start_day_of_month(month, year),
+            self.get_days_in_month(month, year)
+        )
 
+            
 
-print(CalendarGenerator().build_grid_string(1,31))
+#print(CalendarGenerator().is_leap_year(2026))
+#print(CalendarGenerator().get_days_in_month(1,2026))
+#print(CalendarGenerator().get_start_day_of_month(1,2026))
+#print(CalendarGenerator().build_grid_string(1,31))
+print(CalendarGenerator().generate_calendar(1,2026))
