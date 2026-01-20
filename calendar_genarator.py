@@ -54,9 +54,6 @@ class  CalendarGenerator:
             self.get_start_day_of_month(month, year),
             self.get_days_in_month(month, year)
         )
-    def generate_annual_grid(self,year):
-
-        return ('January'.center(20)+'\n' + self.generate_calendar(1,year)+'February'.center(20)+'\n' + self.generate_calendar(2,year))
     
 
             
@@ -65,5 +62,4 @@ class  CalendarGenerator:
 #print(CalendarGenerator().get_days_in_month(1,2026))
 #print(CalendarGenerator().get_start_day_of_month(1,2026))
 #print(CalendarGenerator().build_grid_string(1,31))
-#print(CalendarGenerator().generate_calendar(2,2026))
-print(CalendarGenerator().generate_annual_grid(2026))
+print(CalendarGenerator().generate_calendar(2,2026))
