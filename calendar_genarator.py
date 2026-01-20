@@ -55,11 +55,9 @@ class  CalendarGenerator:
             self.get_days_in_month(month, year)
         )
     def generate_annual_grid(self,year):
-        a=''
-        for i in list(range(1,13)):
-            return (self.generate_calendar(i,year))
-        
-        
+
+        return ('January'.center(20)+'\n' + self.generate_calendar(1,year)+'February'.center(20)+'\n' + self.generate_calendar(2,year))
+    
 
             
 
